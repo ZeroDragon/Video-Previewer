@@ -14,12 +14,20 @@ $(document).ready(function(){
 	/* 	TERMINA CONFIGURACION */
 	$('body').append('<style>.elplay{cursor: pointer;}.elplay:hover{opacity:0.4;filter:alpha(opacity=40);}.video img{background: 0 !important;border: 0 !important;padding: 0 !important;border-radius: 0 !important;-moz-border-radius: 0 !important;-webkit-border-radius: 0 !important;}</style>');	
 	$(".video").each(function(){
-		urrl = $(this).attr("elvideo").match("[\\?&]v=([^&#]*)");
-		url = "http://img.youtube.com/vi/"+urrl[1]+"/0.jpg";
-		$(this).attr('style','border: 0px solid black; width:'+player[0]+'px; height:'+player[1]+'px; position:relative; overflow:hidden;');
-		$(this).append('<img src="'+url+'" width="'+player[0]+'" height="'+player[1]+'" border="0" style="position:absolute; top:0px; left:0px;" />');
-		$(this).append(icono(icon));
-		$(this).append('<div class="elplay" id="'+urrl[1]+'" style="position:absolute; top:'+play[0]+'px; left:'+play[1]+'px;"><img src="'+play[2]+'" border="0" /></div>');
+		esvimeo = $(this).attr("elvideo").search(/vimeo/i);
+		if (esvimeo == -1){
+			urrl = $(this).attr("elvideo").match("[\\?&]v=([^&#]*)");
+			url = "http://img.youtube.com/vi/"+urrl[1]+"/0.jpg";
+			$(this).attr('style','border: 0px solid black; width:'+player[0]+'px; height:'+player[1]+'px; position:relative; overflow:hidden;');
+			$(this).append('<img src="'+url+'" width="'+player[0]+'" height="'+player[1]+'" border="0" style="position:absolute; top:0px; left:0px;" />');
+			$(this).append(icono(icon));
+			$(this).append('<div class="elplay" id="'+urrl[1]+'" style="position:absolute; top:'+play[0]+'px; left:'+play[1]+'px;"><img src="'+play[2]+'" border="0" /></div>');
+		}else{
+			id = ($(this).attr("elvideo").split("/")).pop();
+			$.getJSON("http://vimeo.com/api/v2/video/"+id+".json",function(data){
+				$("#debug").text(data);
+			});
+		}
 	});
 	$(".elplay").click(function(){
 		id = $(this).attr('id');
