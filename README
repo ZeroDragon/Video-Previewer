@@ -1,0 +1,19 @@
+Preview de videos embedidos de youtube
+
+Usa iframes para los videos para su mejor portabilidad
+
+Requiere:
+Jquery apropiadamente puesta en el <head>
+libreria zYoutube.js antes de cerrar </html>
+
+Uso: 
+
+<div class="video" elvideo="la url del video de youtube"></div>
+
+donde la url del video de youtube es algo asi: http://www.youtube.com/watch?v=VUFBFvti7h0
+o virtualmente cualquier url de youtube...
+Ver el index funcionando.
+
+Configuracion:
+
+Todo lo necesario esta comentado en zYoutube.js
