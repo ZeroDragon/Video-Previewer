@@ -1,6 +1,16 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 
+GENERADOR DE DIV MAGICO<br />
+Url de youtube: <input type="text" id="url"><input type="button" id="genera" value="generar" /><br />
+<textarea id="output" cols="60" rows="4"></textarea>
+
 <div class="video" elvideo="http://www.youtube.com/watch?v=Qdlk6WVFjbA&feature=feedf"></div>
 <div class="video" elvideo="http://www.youtube.com/watch?v=VUFBFvti7h0"></div>
 
 <script type="text/javascript" src="js/zYoutube.js"></script>
+
+<script>
+$("#genera").click(function(){
+	$("#output").val('<div class="video" elvideo="'+$("#url").val()+'"></div>');
+});
+</script>
