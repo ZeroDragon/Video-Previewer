@@ -1,10 +1,11 @@
-Preview de videos embedidos de youtube
+Preview de videos embedidos de youtube y vimeo
 
 Usa iframes para los videos para su mejor portabilidad
 
 Requiere:
 Jquery apropiadamente puesta en el <head>
 libreria zYoutube.js antes de cerrar </html>
+PHP en el servidor (solo para VIMEO)
 
 Uso: 
 
@@ -12,7 +13,8 @@ Uso:
 
 donde la url del video de youtube es algo asi: http://www.youtube.com/watch?v=VUFBFvti7h0
 o virtualmente cualquier url de youtube...
-Ver el index funcionando.
+
+Ver el index funcionando y para el generador de tags magicas :P
 
 Configuracion:
 
