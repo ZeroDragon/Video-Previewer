@@ -7,6 +7,10 @@ $(document).ready(function(){
 	//icono opcional sobre el preview (top,left,url,link)
 	//si no especificas url, no se crea el icono ni el link, si no especificas link, no se crea el link
 	var icon = new Array(230,535,"img/icon.png","http://www.zerothedragon.com");
+
+	//icono alternativo opcional que se pone en el mouseover del play (top,left,url)
+	//si no especificas url, no se crea la funcion
+	var iconalt =new Array(179,454,"img/iconalt.png");
 	
 	//boton de play para el preview (top,left,url)
 	var play = new Array(107,265,"img/play.png");
@@ -34,8 +38,7 @@ $(document).ready(function(){
 		}
 		$(this).append(icono(icon));
 	});
-		//
-
+	
 	$(".elplay").click(function(){
 		id = $(this).attr('id');
 		if($(this).attr('tipo')=='vimeo'){
@@ -46,11 +49,28 @@ $(document).ready(function(){
 		$(this).parent().html(embed);
 	});
 
+	// Aqui esta la parte donde cambia el icono por uno alternativo cuando el mouseover en el play
+	$(".elplay").hover(
+		function(){
+			if(iconalt[2]!=''){
+				$(this).parent().find('#icono').attr('src',iconalt[2]);
+				$(this).parent().find('#icono2').attr('style','position: absolute; top:'+iconalt[0]+'px; left:'+iconalt[1]+'px;');
+			}
+		},
+		function(){
+			if(iconalt[2]!=''){
+				$(this).parent().find('#icono').attr('src',icon[2]);
+				$(this).parent().find('#icono2').attr('style','position: absolute; top:'+icon[0]+'px; left:'+icon[1]+'px;');
+			}
+		}
+	);
+	//termina el hover especial
+
 });
 function icono(icon){
 	if(icon){
 		link = '<img id="icono" src="'+icon[2]+'" border="0" />';
 		link = (icon[3] !='') ? '<a href="'+icon[3]+'" target="_blank">'+link+'</a>' : link;
-		return '<div style="position:absolute; top:'+icon[0]+'px; left:'+icon[1]+'px;">'+link+'</div>';
+		return '<div id="icono2" style="position:absolute; top:'+icon[0]+'px; left:'+icon[1]+'px;">'+link+'</div>';
 	}
 }
