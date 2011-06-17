@@ -2,7 +2,7 @@
 G.N.U. C.C. & shit donde digo que puedes copiar y usar este codigo siempre y cuando dejes este comentario :D
 Codeado por ZeroDragon (sorry)
 Para ver las nuevas versiones, comentar bugs o sugerir mejoras, visitar el repositorio completo en github
-(http://ZeroDragon@github.com/ZeroDragon/Youtube-Preview.git)
+(https://github.com/ZeroDragon/Youtube-Preview)
 */
 $(document).ready(function(){
 	/* CONFIGURACION */
