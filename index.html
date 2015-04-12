@@ -1,15 +1,23 @@
-<script type="text/javascript" src="js/jquery.js"></script>
+<html>
+  <head>
+    <script>
+      var videoPreview = {
+        width:350,
+        height:250,
+        palete:'mint',
+        holderStyle:'border-top-right-radius:30%;border-bottom-left-radius:30%;border:5px solid #47a3ff;'
+      };
+    </script>
+    <script src="/lib/videoPreview.min.js"></script>
+  </head>
 
-GENERADOR DE DIV MAGICO<br />
-Url de youtube: <input type="text" id="url"><input type="button" id="genera" value="generar" /><br />
-<textarea id="output" cols="60" rows="4"></textarea>
+  <body>
+    <h2>Vimeo video</h2>
+    <pre>&lt;vp url="124509897"&gt;&lt;/vp&gt;</pre>
+    <vp url="124509897"></vp>
+    <h2>Youtube video</h2>
+    <pre>&lt;vp url="HJMapA8WgYw"&gt;&lt;/vp&gt;</pre>
+    <vp url="HJMapA8WgYw"></vp>
 
-<div class="video" elvideo="http://www.youtube.com/watch?v=Qdlk6WVFjbA&feature=feedf"></div>
-<div class="video" elvideo="http://vimeo.com/12229520"></div>
-<script type="text/javascript" src="js/zYoutube.js"></script>
-
-<script>
-$("#genera").click(function(){
-	$("#output").val('<div class="video" elvideo="'+$("#url").val()+'"></div>');
-});
+  </body>
 </script>

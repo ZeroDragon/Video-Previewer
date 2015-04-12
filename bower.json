@@ -1,0 +1,26 @@
+{
+  "name": "Video-Previewer",
+  "version": "2.15.04-11a",
+  "homepage": "https://github.com/ZeroDragon/Youtube-Preview",
+  "authors": [
+    "Carlos Flores <npm@zerothedragon.com>"
+  ],
+  "description": "Youtube and Vimeo custom preview",
+  "main": "lib/videoPreview.min.js",
+  "keywords": [
+    "Video",
+    "Preview",
+    "Custom",
+    "youtube",
+    "Custom",
+    "Vimeo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

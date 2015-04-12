@@ -1,0 +1,13 @@
+{
+  "name": "YoutubePreview",
+  "version": "1.0.0",
+  "description": "El makefile y dependencias",
+  "author": "ZeroDragon",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.9.1",
+    "console-extensions": "^0.15.305-b",
+    "uglify-js": "^2.4.19"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,22 @@
+fs     = require 'fs'
+uglyfy = require 'uglify-js'
+require 'console-extensions'
+{exec} = require 'child_process'
+
+task 'build', 'Build plugin from sources', ->
+	out = []
+	out.push fs.readFileSync 'jQuery.js', {encoding:'utf8'}
+	exec './node_modules/.bin/coffee -cpb videoPreview.coffee', (err, stdout, stderr) ->
+		console.error err if err
+		out.push uglyfy.minify(stdout, {fromString:true}).code
+		fs.writeFileSync '../videoPreview.min.js', out.join('\n')
+		console.info 'Generating file'.green + ' ✓'
+
+task 'watch', 'Watch for changes', ->
+	invoke 'build'
+	console.info "Watching for changes in src".yellow
+
+	fs.watchFile 'videoPreview.coffee', (curr,prev)->
+		if +curr.mtime isnt +prev.mtime
+			console.info 'Saw changes'.yellow
+			invoke 'build'
