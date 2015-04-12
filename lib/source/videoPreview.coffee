@@ -15,7 +15,7 @@ VideoPreview = {
 
 (($)->
 	$ ->
-		(VideoPreview[k] = v for k, v of videoPreview) if videoPreview
+		(VideoPreview[k] = v for k, v of videoPreview) if videoPreview?
 		VideoPreview.color = VideoPreview.paletes[VideoPreview.palete]
 		VideoPreview.playImage = '<svg width="92" height="92" xmlns="http://www.w3.org/2000/svg"><g><title>Play</title><rect opacity="0.9" ry="24" rx="24" id="svg_1" height="87" width="87" y="2.5" x="2.5" stroke-width="5" stroke="#ffffff" fill="'+VideoPreview.color.boxBG+'"/><path id="svg_3" d="m33.84636,74.58079l8.22989,-29.31224l-8.2299,-26.57616l27.94421,27.9442l-27.94419,27.94419z" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#ffffff" fill="'+VideoPreview.color.arrowBG+'"/></g></svg>'
 		VideoPreview.playImage = '<img src="'+VideoPreview.play+'"/>' if VideoPreview.play?
