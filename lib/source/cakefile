@@ -4,8 +4,13 @@ require 'console-extensions'
 {exec} = require 'child_process'
 
 task 'build', 'Build plugin from sources', ->
-	out = []
-	out.push fs.readFileSync 'jQuery.js', {encoding:'utf8'}
+	out = ['/*\n
+\tVideo-Previewer (anteriormente Youtube-Preview)\n
+\tCreado por ZeroDragon <npm@zerothedragon.com>\n
+\tLicencia de software: MIT\n
+\tEste código se proporciona tal cual y el uso es responsabilidad del usuario.\n
+\tPara más información ver el repositorio en https://github.com/ZeroDragon/Youtube-Preview\n
+*/']
 	exec './node_modules/.bin/coffee -cpb videoPreview.coffee', (err, stdout, stderr) ->
 		console.error err if err
 		out.push uglyfy.minify(stdout, {fromString:true}).code
@@ -16,7 +21,7 @@ task 'watch', 'Watch for changes', ->
 	invoke 'build'
 	console.info "Watching for changes in src".yellow
 
-	fs.watchFile 'videoPreview.coffee', (curr,prev)->
+	fs.watchFile 'videoPreview.coffee', { persistent: true, interval: 1007 },(curr,prev)->
 		if +curr.mtime isnt +prev.mtime
 			console.info 'Saw changes'.yellow
 			invoke 'build'
